@@ -1,5 +1,7 @@
 # entity
 
+[![Clojars Project](https://img.shields.io/clojars/v/brianium/entity.svg)](https://clojars.org/brianium/entity)
+
 Just a basic entity library for Clojure(Script). Helps you deal with maps that have ids
 
 ## Usage
