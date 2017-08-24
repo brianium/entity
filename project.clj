@@ -1,4 +1,4 @@
-(defproject brianium/entity "0.1.0"
+(defproject brianium/entity "0.2.0"
   :description "A simple starting point for Clojure(Script) entities"
   
   :url "https://github.com/brianium/entity"

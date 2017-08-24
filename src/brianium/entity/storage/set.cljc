@@ -42,13 +42,13 @@
 (defrecord SetStorage [*coll]
   storage/EntityStorage
   (-get-by-id [_ id] (find-entity *coll id))
-  (-insert  [_ entity] (insert *coll entity))
-  (-update [_ entity] (update-entity
+  (-insert!  [_ entity] (insert *coll entity))
+  (-update! [_ entity] (update-entity
                         *coll
                         entity
                         (find-entity *coll (::entity/id entity))))
   (-all [_] @*coll)
-  (-remove [_ id] (remove-entity *coll id)))
+  (-remove! [_ id] (remove-entity *coll id)))
 
 
 (defn make-storage
