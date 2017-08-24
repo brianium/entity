@@ -8,10 +8,10 @@
 
 (defprotocol EntityStorage
   (-get-by-id [this id])
-  (-insert [this entity])
-  (-update [this entity])
+  (-insert! [this entity])
+  (-update! [this entity])
   (-all [this])
-  (-remove [this id]))
+  (-remove! [this id]))
 
 
 (defn entity-storage?
@@ -25,16 +25,16 @@
   (-get-by-id storage id))
 
 
-(defn insert
+(defn insert!
   "Insert a new entity into storage"
   [storage entity]
-  (-insert storage entity))
+  (-insert! storage entity))
 
 
-(defn update
+(defn update!
   "Update an existing entity"
   [storage entity]
-  (-update storage entity))
+  (-update! storage entity))
 
 
 (defn all
@@ -43,16 +43,16 @@
   (-all storage))
 
 
-(defn remove
+(defn remove!
   "Removes an entity by id from storage"
   [storage id]
-  (-remove storage id))
+  (-remove! storage id))
 
 
-(defn insert-or-update
+(defn insert-or-update!
   "Inserts an entity if new - otherwise updates"
   [storage {:keys [::entity/id] :as entity}]
   (let [existing (get-by-id storage id)]
     (if (s/valid? ::entity-spec/entity entity)
-      (update storage entity)
-      (insert storage entity))))
+      (update! storage entity)
+      (insert! storage entity))))

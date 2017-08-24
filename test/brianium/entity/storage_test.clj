@@ -14,12 +14,12 @@
   (testing "inserting new record"
     (let [storage   (make-storage)
           inserting (entity/make-entity {})]
-      (insert-or-update storage inserting)
+      (insert-or-update! storage inserting)
       (is (= inserting (first (all storage))))))
   (testing "updating a record"
     (let [current (entity/make-entity {:name "entity"})
           storage (make-storage #{current})]
-      (insert-or-update storage (merge current {:name "updated"}))
+      (insert-or-update! storage (merge current {:name "updated"}))
       (is (= 1 (count (all storage))))
       (is (= "updated" (:name (first (all storage))))))))
 

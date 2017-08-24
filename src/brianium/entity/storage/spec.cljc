@@ -18,12 +18,12 @@
   :ret  (s/or :entity ::entity/entity :not-found nil?))
 
 
-(s/fdef storage/insert
+(s/fdef storage/insert!
   :args (s/cat :storage ::entity-storage :entity ::entity/entity)
   :ret  ::entity/entity)
 
 
-(s/fdef storage/update
+(s/fdef storage/update!
   :args (s/cat :storage ::entity-storage :entity ::entity/entity)
   :ret  ::entity/entity)
 
@@ -33,11 +33,11 @@
   :ret  (s/* ::entity/entity))
 
 
-(s/fdef storage/remove
+(s/fdef storage/remove!
   :args (s/cat :storage ::entity-storage :id ::entity/id)
   :ret  boolean?)
 
 
-(s/fdef storage/insert-or-update
+(s/fdef storage/insert-or-update!
   :args (s/cat :storage ::entity-storage :entity ::entity/entity)
   :ret  ::entity/entity)
